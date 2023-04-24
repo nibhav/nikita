@@ -1,0 +1,1122 @@
+// function
+package main
+
+import (
+	"fmt"
+)
+
+func calculate_bill(price, no int) int {
+	var total_bill = price * no
+	return total_bill
+}
+func square(length, width float64) (float64, float64) {
+	var area = length * width
+	var perimeter = (length * width) / 2
+	return area, perimeter
+}
+func main() {
+	var total_bill = calculate_bill(15, 6)
+	fmt.Println("Total Bill is:", total_bill)
+	var area, perimeter = square(5.5, 6.2)
+	fmt.Println("\narea of square is:", area)
+	fmt.Println("\nPerimeter of square is:", perimeter)
+}
+// check even odd using if else
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var num = 20
+	if num%2 == 0 {
+		fmt.Println("Given no. is Even")
+	} else {
+		fmt.Println("Given no. is Odd")
+	}
+	fmt.Println("Given no is:", num)
+}
+// break and continue
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	for i := 1; i <= 10; i++ {
+		if i == 5 {
+			break //continue
+		}
+		fmt.Printf("%d\n", i)
+	}
+}
+// print *
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var n = 5
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Print("*")
+		}
+		fmt.Println()
+	}
+}
+// nested for
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	for i := 1; i <= 3; i++ {
+		for j := 1; j <= 5; j++ {
+			fmt.Printf("i=%d, j=%d\n", i, j)
+			if i == j {
+				break
+			}
+		}
+		//fmt.Println()
+	}
+}
+// nested for break and continue
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+outer:
+	for i := 1; i <= 5; i++ {
+		for j := 1; j <= 3; j++ {
+			fmt.Printf("i=%d, j=%d\n", i, j)
+			if i == j {
+				break outer
+			}
+		}
+		//fmt.Println()
+	}
+}
+// function print in range even and odd
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	for i := 0; i <= 10; i += 2 {
+		fmt.Printf("Even numbers are:%d \n", i)
+	}
+	for i := 1; i <= 21; i += 2 {
+		fmt.Printf("Odd number is:%d \n", i)
+	}
+}
+// intialize  more variable in for
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	for no, i := 1, 4; i <= 10 && no <= 40; i, no = i+4, no+1 {
+		fmt.Printf("%d * %d = %d\n", no, i, no*i)
+	}
+
+}
+// switch
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	finger := 8
+	fmt.Println("Finger is:", finger)
+	switch finger {
+	case 1:
+		fmt.Print("thumb")
+	case 2:
+		fmt.Print("index")
+	case 3:
+		fmt.Print("middle")
+	case 4:
+		fmt.Print("ring")
+	case 5:
+		fmt.Print("pinky")
+	default:
+		fmt.Print("Invalid Finger")
+	}
+}
+// function swich multiple value in 1 case
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var letter = "i"
+	fmt.Printf("Letter %s is ", letter)
+	switch letter {
+	case "a", "e", "i", "o", "u":
+		fmt.Print("vowel")
+	default:
+		fmt.Print("Not vowel")
+	}
+}
+// array initialization
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var a [2]int
+	a[0] = 45
+	a[1] = 67
+	fmt.Println(a)
+	b := [3]int{12, 34, 56}
+	fmt.Println(b)
+	c := [...]int{12, 34, 56, 78, 90}
+	fmt.Println(c)
+	var d [7]int
+	//c = d
+	fmt.Println(d)
+	e := [...]string{"abc", "pqr", "mnp", "xyz", "def", "jkl"}
+	f := e
+	f[0] = "xuv"
+	fmt.Println("e is", e)
+	fmt.Println("f is", f)
+
+}
+//array
+package main
+
+import (
+	"fmt"
+)
+
+func cal(num [5]int) {
+	num[0] = 55
+	fmt.Println("inside function ", num)
+}
+func main() {
+	num := [...]int{5, 6, 7, 8, 8}
+	fmt.Println("before passing to function ", num)
+	cal(num) //num is passed by value
+	fmt.Println("after passing to function ", num)
+	var a [2]int
+	a[0] = 45
+	a[1] = 67
+	fmt.Println(a)
+	b := [3]int{12, 34, 56}
+	fmt.Println(b)
+	c := [...]int{12, 34, 56, 78, 90}
+	fmt.Println(c)
+	var d [7]int
+	//c = d
+	fmt.Println(d)
+	e := [...]string{"abc", "pqr", "mnp", "xyz", "def", "jkl"}
+	f := e
+	f[0] = "xuv"
+	fmt.Println("e is", e)
+	fmt.Println("f is", f)
+
+}
+package main
+
+import (
+	"fmt"
+)
+
+func cal(num [5]int) {
+	num[0] = 55
+	fmt.Println("inside function ", num)
+}
+func main() {
+	num := [...]int{5, 6, 7, 8, 8}
+	fmt.Println("before passing to function ", num)
+	cal(num) //num is passed by value
+	fmt.Println("after passing to function ", num)
+	var a [2]int
+	a[0] = 45
+	a[1] = 67
+	fmt.Println(a)
+	b := [3]int{12, 34, 56}
+	fmt.Println(b)
+	c := [...]int{12, 34, 56, 78, 90}
+	fmt.Println(c)
+	fmt.Println("length iof c is", len(c))
+	var d [7]int
+	//c = d
+	fmt.Println(d)
+	e := [...]string{"abc", "pqr", "mnp", "xyz", "def", "jkl"}
+	f := e
+	f[0] = "xuv"
+	fmt.Println("e is", e)
+	fmt.Println("f is", f)
+	z := [...]float64{11.0, 25.0, 6.2}
+	for i := 0; i < len(z); i++ {
+		fmt.Printf("%d th element of z is %.2f\n", i, z[i])
+	}
+
+}
+//float array
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [...]float64{11.2, 33.6, 22.5, 45.9, 88.9, 77.5}
+	sum := float64(0)
+	for i, v := range a {
+		fmt.Printf("%d the element of a is %.2f\n", i, v)
+		sum += v
+	}
+	fmt.Println("\nsum of all elements of a", sum)
+
+}
+// direct initialization array
+package main
+
+import (
+	"fmt"
+)
+
+//func  print() {
+//for i , v := range c
+
+func main() {
+	a := [3][2]int{{10, 20},
+		{30, 40},
+		{50, 80}}
+	fmt.Println(a)
+
+	b := [3][3]string{{"animal", "cat", "dog"},
+		{"flower", "rose", "lotus"},
+		{"fruit", "mango", "orange"}}
+	for i, v := range b {
+		fmt.Println(i, v)
+	}
+	var c [2][2]float64
+	c[0][0] = 56.5
+	c[0][1] = 12.5
+	c[1][0] = 45.5
+	c[1][1] = 89.1
+	for i, v := range c {
+		fmt.Println(i, v)
+	}
+
+}
+//slicing
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [5]int{12, 23, 34, 45, 56}
+	var b []int = a[1:4]
+	fmt.Println(b)
+}
+//slicing
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [...]int{12, 10, 14, 16, 18, 13, 15, 17, 19, 11}
+	b := a[0:10]
+	fmt.Println("Before:", b)
+	for i := range a {
+		a[i]++
+	}
+	fmt.Println("After", a)
+
+	numa := [...]string{"aaa", "bbb", "ccc", "ddd", "eee", "fff", "ggg", "hhh", "iii", "jjj", "kkk"}
+	num1 := numa[:]
+	num2 := numa[:]
+	fmt.Println("Before:", numa)
+	num1[0] = "zzz"
+	num1[5] = "ooo"
+	fmt.Println("After change num1:", numa)
+	num2[1] = "yyy"
+	fmt.Println("After change num2:", numa)
+
+}
+// slice length and capabilities
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [...]string{"oooo", "tttt", "", "wwww", "vvvv", "uuu", "qqq", "yyy", "xxx", "zzz"}
+	fmt.Println(a)
+	as := a[2:7]
+	fmt.Println(as)
+	fmt.Println("check length and capacity is :", len(as), cap(as))
+
+}
+// reslicing 
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [...]string{"oooo", "tttt", "", "wwww", "vvvv", "uuu", "qqq", "yyy", "xxx", "zzz"}
+	fmt.Println(a)
+	as := a[1:8]
+	fmt.Println(as)
+	fmt.Println("check length and capacity is :", len(as), cap(as))
+	as = as[:cap(a)]
+	fmt.Println("After reslicing length and capacity is :", len(as), cap(as))
+
+}
+//append slicing
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	i := []string{"aaa", "bbb", "ccc"}
+	fmt.Println(i)
+	fmt.Println("Arry has old length and capacity", len(i), cap(i))
+	i = append(i, "Toyota")
+	fmt.Println("Arry has new length and capacity", len(i), cap(i))
+}
+// flags
+package main
+
+import (
+    "flag"
+    "fmt"
+)
+
+func main() {
+
+    flag1 := flag.String("flag1", "value1", "usage1")
+    flag2 := flag.String("flag2", "value2", "usage3")
+
+    flag.Parse()
+
+    fmt.Println(*flag1)
+    fmt.Println(*flag2)
+}
+//goroutine 1 func
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func print() {
+	fmt.Println("Hello i am in print")
+	fmt.Println("i am 2 nd in print")
+}
+
+func main() {
+	go print()
+	time.Sleep(10 * time.Millisecond)
+	fmt.Println("i am in main")
+}
+//goroutine with 2 func
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func numbers() {
+	for i := 1; i < 5; i++ {
+		fmt.Println(i)
+	}
+}
+
+func charcters() {
+	for j := 'a'; j < 'h'; j++ {
+		fmt.Println(j)
+	}
+}
+
+func main() {
+	go numbers()
+	time.Sleep(50 * time.Second)
+	go charcters()
+	time.Sleep(25 * time.Second)
+	fmt.Println("I am in main Function")
+}
+//goroutine with 2 function witn time in main also
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func numbers() {
+	for i := 1; i < 5; i++ {
+		time.Sleep(2 * time.Second)
+		fmt.Println(i)
+	}
+}
+
+func charcters() {
+	for j := 'a'; j < 'h'; j++ {
+		time.Sleep(3 * time.Second)
+		fmt.Println(j)
+	}
+}
+
+func main() {
+	go numbers()
+	go charcters()
+	time.Sleep(40 * time.Second)
+	fmt.Println("I am in main Function")
+}
+o/p :1
+97
+2
+98
+3
+4
+99
+100
+101
+102
+103
+I am in main Function
+
+or----package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func numbers() {
+	for i := 1; i < 5; i++ {
+		time.Sleep(20 * time.Second)
+		fmt.Println(i)
+	}
+}
+
+func charcters() {
+	for j := 'a'; j < 'h'; j++ {
+		time.Sleep(30 * time.Second)
+		fmt.Println(j)
+	}
+}
+
+func main() {
+	go numbers()
+	go charcters()
+	time.Sleep(40 * time.Second)
+	fmt.Println("I am in main Function")
+}
+o/p--1
+97
+2
+I am in main Function
+
+or---
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func numbers() {
+	for i := 1; i < 5; i++ {
+		time.Sleep(5 * time.Second)
+		fmt.Println(i)
+	}
+}
+
+func charcters() {
+	for j := 'a'; j < 'h'; j++ {
+		time.Sleep(15 * time.Second)
+		fmt.Println(j)
+	}
+}
+
+func main() {
+	go numbers()
+	go charcters()
+	time.Sleep(50 * time.Second)
+	fmt.Println("I am in main Function")
+}
+o/p---1
+2
+3
+97
+4
+98
+99
+I am in main Function
+
+goroutines:= goroutine is a function or a method thet run concurrently(at a same time)with the other function or method.
+concurrency:= concurrency is the capability to deal with lot of work at once.(jogging,shoe less)
+parallelism:= parallelism is the capability to deal with lot of work at same time.(jogging,listen music)
+channels := channels is the ont type of medium by which gorutines communicate.(data can be sent from one end and received to other end using channels)
+pointer := pointer is a variable that stores a memory address of another variable.
+//pointer
+package main
+
+import (  
+    "fmt"
+)
+
+func main() {  
+    b := 255
+    var a *int = &b
+    fmt.Printf("Type of a is %T\n", a)
+    fmt.Println("address of b is", a)
+}
+//null pointer
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := 110
+	var b *int
+	fmt.Println(a)
+	if b == nil {
+		fmt.Println("address of b", b)
+		b := &a
+		fmt.Printf("Type of b is %T\n", b)
+		fmt.Println("address of b is", b)
+	}
+}
+//declare pointer with new function
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	size := new(int)
+	fmt.Printf("Size value is %d, type is %T, address is %v\n", *size, size, size)
+	*size = 85
+	fmt.Println("New size value is", *size)
+}
+//de-refrencing a pointer
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	v := 200
+	z := &v
+	fmt.Println("address of z is:", z)
+	fmt.Println("value of z is:", *z)
+	*z++
+	fmt.Println("new value of z:", *z)
+}
+//pointer using function
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := 55
+	b := &a
+	fmt.Println("value of b before cfunction call", *b, b, a)
+	change(b)
+	fmt.Println("value of b after function call", *b, b, a)
+}
+func change(val *int) {
+	*val = 60
+}
+//returning pointer to a function
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := change()
+	fmt.Println(" value of a is", *a)
+}
+func change() *int {
+	i := 10
+	return &i
+}
+//passing pointer to array -slice(because dont able to pass pointer to array)
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [3]int{10, 20, 30}
+	fmt.Println("Before modify value:", a)
+	change(&a)
+	fmt.Println("After modify value:", a)
+}
+func change(arr *[3]int) {
+	(*arr)[1] = 71
+}
+//passing pointer to slice
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := [3]int{10, 20, 30}
+	fmt.Println("Before modify value:", a)
+	change(&a)
+	fmt.Println("After modify value:", a)
+}
+func change(sls *[3]int) {
+	(*sls)[1] = 71
+}
+struct:=struct is a user-define data type that represents collection of data fields.
+//creating struct
+package main
+
+import (
+	"fmt"
+)
+
+type student struct {
+	firstname string
+	lastname  string
+	age       int
+	degree    string
+}
+
+func main() {
+	emp1 := student{
+		firstname: "nikita",
+		lastname:  "patil",
+		age:       30,
+		degree:    "bsc",
+	}
+	fmt.Println("by using fieldname:", emp1)
+
+	emp2 := student{"uma", "kumawat", 40, "btec"}
+	fmt.Println("direct value passing:", emp2)
+}
+//anonymous struct
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	emp := struct {
+		firstname string
+		lastname  string
+		age       int
+		degree    string
+	}{
+		firstname: "niki",
+		lastname:  "bhangale",
+		age:       56,
+		degree:    "ca",
+	}
+	fmt.Println("data:", emp)
+
+}
+//data assessing by field name
+package main
+
+import (
+	"fmt"
+)
+
+type student struct {
+	firstname string
+	lastname  string
+	age       int
+	degree    string
+}
+
+func main() {
+	emp1 := student{
+		firstname: "nikita",
+		lastname:  "patil",
+		age:       30,
+		degree:    "bsc",
+	}
+	fmt.Println("by using fieldname:", emp1)
+	emp2 := student{"uma", "kumawat", 40, "btec"}
+	fmt.Println("direct value passing:", emp2)
+	fmt.Println(emp1.firstname)
+	fmt.Println(emp1.lastname)
+	fmt.Println(emp1.age)
+	fmt.Println(emp1.degree)
+	emp1.age = 50
+	fmt.Println(emp1.age)
+	emp1.degree = "mtec"
+	fmt.Println(emp1.degree)
+}
+zero value of a struct(string returns nothing and int returns 0)
+package main
+
+import (
+	"fmt"
+)
+
+type employee struct {
+	firstname string
+	lastname  string
+	age       int
+	degree    string
+}
+
+func main() {
+	var emp3 employee
+	fmt.Println(emp3.firstname)
+	fmt.Println(emp3.lastname)
+	fmt.Println(emp3.age)
+	fmt.Println(emp3.degree)
+}
+//pointer to struct
+package main
+
+import (
+	"fmt"
+)
+
+type employee struct {
+	firstname string
+	lastname  string
+	age       int
+	degree    string
+}
+
+func main() {
+	emp := &employee{
+		firstname: "aaa",
+		lastname:  "bbbb",
+		age:       55,
+		degree:    "mca",
+	}
+	fmt.Println(emp)
+	fmt.Println(*emp)
+	fmt.Println(emp.firstname)
+	fmt.Println((*emp).firstname)
+	fmt.Println(emp.age)
+	fmt.Println((*emp).age)
+
+}
+o/p===&{aaa bbbb 55 mca}
+{aaa bbbb 55 mca}
+aaa
+aaa
+55
+55
+//Anonymous field
+package main
+
+import (
+	"fmt"
+)
+
+type Person struct {
+	string
+	int
+}
+
+func main() {
+	p1 := Person{
+		string: "nnn",
+		int:    50,
+	}
+	fmt.Println(p1.string)
+	fmt.Println(p1.int)
+}
+//nested struct
+package main
+
+import (
+	"fmt"
+)
+
+type Person struct {
+	name    string
+	age     int
+	address address
+      //address       (promoted struct-no need to specify next struct)
+}
+type address struct {
+	state   string
+	pincode int
+}
+
+func main() {
+	p1 := Person{
+		name: "niki",
+		age:  56,
+		address: address{
+			state:   "bbbb",
+			pincode: 67523,
+		},
+	}
+	fmt.Println(p1)
+	fmt.Println(p1.name)
+	fmt.Println(p1.age)
+	fmt.Println(p1.address)
+}
+o/p---{niki 56 {bbbb 67523}}
+niki
+56
+{bbbb 67523}
+//struct equality
+package main
+
+import (
+	"fmt"
+)
+
+type person struct {
+	name string
+	age  int
+}
+
+func main() {
+	p1 := person{
+		name: "mmmm",
+		age:  90,
+	}
+	p2 := person{
+		name: "mmmm",
+		age:  90,
+	}
+	p3 := person{
+		name: "oooo",
+		age:  12,
+	}
+	p4 := person{
+		name: "qqqqq",
+	}
+	p5 := person{
+		age: 45,
+	}
+
+	if p1 == p2 {
+		fmt.Println("p1 p2 equal")
+	} else {
+		fmt.Println("p1 p2 not equal")
+	}
+
+	if p3 == p4 {
+		fmt.Println("p3 p4 equal")
+	} else {
+		fmt.Println("p3 p4 not equal")
+	}
+
+	if p3 == p5 {
+		fmt.Println("p3 p5 equal")
+	} else {
+		fmt.Println("p3 p5 not equal")
+	}
+
+	if p4 == p5 {
+		fmt.Println("p4 p5 equal")
+	} else {
+		fmt.Println("p4 p5 not equal")
+	}
+}
+o/p---p1 p2 equal
+p3 p4 not equal
+p3 p5 not equal
+p4 p5 not equal
+
+//calculator using struct
+package main
+import (
+   "fmt"
+)
+type Calculator struct {
+   a int
+   b int
+}
+func (c *Calculator)Add(){
+   fmt.Println("Addition of two numbers: ", c.a + c.b)
+}
+func (c *Calculator)Mul(){
+   fmt.Println("Multiplication of two numbers: ", c.a * c.b)
+}
+func (c *Calculator)Div(){
+   fmt.Println("Division of two numbers: ", c.a / c.b)
+}
+func (c *Calculator)Sub(){
+   fmt.Println("Subtraction of two numbers: ", c.a - c.b)
+}
+func main(){
+   var a, b int
+   fmt.Print("Enter the first number: ")
+   fmt.Scanf("%d", &a)
+   fmt.Print("Enter the second number: ")
+   fmt.Scanf("%d", &b)
+   cal := Calculator{
+      a: a,
+      b: b,
+   }
+   c:=1
+   for c>=1 {
+      fmt.Println("Enter 1 for Addition: ")
+      fmt.Println("Enter 2 for Multiplication: ")
+      fmt.Println("Enter 3 for Division: ")
+      fmt.Println("Enter 4 for Subtraction: ")
+      fmt.Print("Enter 5 for Exit: ")
+      fmt.Scanf("%d", &c)
+      switch c {
+         case 1:
+            cal.Add()
+         case 2:
+            cal.Mul()
+         case 3:
+            cal.Div()
+         case 4:
+            cal.Sub()
+         case 5:
+            c = 0
+            break
+         default:
+         fmt.Println("Enter valid number.")
+      }      
+   }
+}
+Output
+Enter the first number: 7
+Enter the second number: 3
+Enter 1 for Addition:
+Enter 2 for Multiplication:
+Enter 3 for Division:
+Enter 4 for Subtraction:
+Enter 5 for Exit: 1
+Addition of two numbers: 10
+Enter 1 for Addition:
+Enter 2 for Multiplication:
+Enter 3 for Division:
+Enter 4 for Subtraction:
+Enter 5 for Exit: 2
+Multiplication of two numbers: 21
+Enter 1 for Addition:
+Enter 2 for Multiplication:
+Enter 3 for Division:
+Enter 4 for Subtraction:
+Enter 5 for Exit: 3
+Division of two numbers: 2
+Enter 1 for Addition:
+Enter 2 for Multiplication:
+Enter 3 for Division:
+Enter 4 for Subtraction:
+Enter 5 for Exit: 4
+Subtraction of two numbers: 4
+Enter 1 for Addition:
+Enter 2 for Multiplication:
+Enter 3 for Division:
+Enter 4 for Subtraction:
+Enter 5 for Exit: 5
+//make map
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	student := make(map[string]int)
+	student["nikita"] = 12000
+	student["uma"] = 10000
+	student["meghna"] = 20000
+	fmt.Println(student)
+	
+	for key, value := range student { //get content with for loop
+		fmt.Println(key, value)
+	}
+
+	
+	stud := "aa"  //checking if key is exists or not
+	value, ok := student[stud]
+	if ok == true {
+		fmt.Println("name:", stud, "value:", value)
+		return
+	}
+	fmt.Println("name:", student, " not found")
+
+	employee := map[string]float64{
+		"new": 111.11,
+		"old": 000.00,
+	}
+	employee["mid"] = 555.55
+	fmt.Println(employee)
+	
+	emp := "new"
+	salary := employee[emp]
+	fmt.Println("name of emplyee is", emp, "and salary is", salary) //retriving values
+	
+	emp := "new"
+	fmt.Println("name of emplyee is", emp, "and salary is", employee[emp])//direct 
+
+
+
+	var company map[string]int // zero value of map..op gives error
+	company["abc"] = 11
+	fmt.Println(company)
+}
+
+
+//git
+or create a new repository on the command line
+echo "# new" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:nibhav/new.git
+git push -u origin main
+
+or push an existing repository from the command line
+git remote add origin git@github.com:nibhav/new.git
+git branch -M main
+git push -u origin main
+
+
+
+
+
+

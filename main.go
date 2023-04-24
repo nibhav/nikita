@@ -1,22 +1,37 @@
 package main
 
 import (
+	"calc/calc"
 	"fmt"
-	"mcalci/mcalci"
 )
 
 func main() {
-	input := mcalci.CalculatorInput{A: 10, B: 5}
+	var ch int
+	var a, b float64
+	fmt.Print("Enter the first number: ")
+	fmt.Scanf("%f", &a)
+	fmt.Print("Enter the second number: ")
+	fmt.Scanf("%f", &b)
 
-	sum := input.Add()
-	fmt.Printf("%.2f + %.2f = %.2f\n", input.A, input.B, sum)
+	calc := calc.MathFloat{No1: a, No2: b}
 
-	diff := input.Subtract()
-	fmt.Printf("%.2f - %.2f = %.2f\n", input.A, input.B, diff)
+	fmt.Println("1: Addition")
+	fmt.Println("2: Subtraction")
+	fmt.Println("3: Multiplication")
+	fmt.Println("4: Division")
+	fmt.Println("Enter choice: ")
+	fmt.Scan(&ch)
 
-	product := input.Multiply()
-	fmt.Printf("%.2f * %.2f = %.2f\n", input.A, input.B, product)
-
-	quotient := input.Divide()
-	fmt.Printf("%.2f * %.2f = %.2f\n", input.A, input.B, quotient)
+	switch ch {
+	case 1:
+		fmt.Printf("Additon: %f \n", calc.Addition())
+	case 2:
+		fmt.Printf("Subtraction: %f \n", calc.Subtraction())
+	case 3:
+		fmt.Printf("Multiplication: %f \n", calc.Multiplication())
+	case 4:
+		fmt.Printf("Division: %f \n", calc.Division())
+	default:
+		fmt.Println("Invalid value")
+	}
 }

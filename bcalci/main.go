@@ -10,18 +10,17 @@ type Calculator struct {
 	b int
 }
 
-
 func main() {
-	var ch int 
-	var a, b int
-   fmt.Print("Enter the first number: ")
-   fmt.Scanf("%d", &a)
-   fmt.Print("Enter the second number: ")
-   fmt.Scanf("%d", &b)
-   cal := Calculator{
-      a: a,
-      b: b,
-   }
+	var ch int
+	var num1, num2 int
+	fmt.Print("Enter the first number: ")
+	fmt.Scanf("%d", &num1)
+	fmt.Print("Enter the second number: ")
+	fmt.Scanf("%d", &num2)
+	cal := Calculator{
+		a: num1,
+		b: num2,
+	}
 
 	fmt.Println("1: Addition")
 	fmt.Println("2: Subtraction")

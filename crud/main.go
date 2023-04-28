@@ -44,7 +44,7 @@ func main() {
 	// fmt.Println("created table")
 
 	//   //insert into table
-	_, err := db.Exec("INSERT INTO Children VALUES(1, 'abcc', '10')")
+	_, err := db.Exec("INSERT INTO Children VALUES(1, 'betuu', '08')")
 	if err != nil {
 		panic(err.Error())
 	}

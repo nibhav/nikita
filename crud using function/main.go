@@ -15,37 +15,40 @@ type employee struct {
 }
 
 func dbConn() (db *sql.DB) {
-	db, err := sql.Open("mysql", "root@tcp(127.0.0.1:3306)/demo")
+	db, err := sql.Open("mysql", "root@tcp(127.0.0.1:3306)/cartoon")
 	if err != nil {
 		panic(err.Error())
 	}
 	return db
 }
 
-// func Create(w http.ResponseWriter, r *http.Request) {
+// func CreateDB(w http.ResponseWriter, r *http.Request) {
 // 	db := dbConn()
-// 	emp, err := db.Prepare("CREATE TABLE emplyee(ID int,Name string,Address string)")
+// 	_, err := db.Exec("CREATE DATABASE cartoon")
 // 	if err != nil {
 // 		fmt.Println(err)
 // 	}
-// 	_, err = emp.Exec(emp)
-// 	if err != nil {
-// 		fmt.Println(err)
-// 	}
-// 	fmt.Println("Employee table created", 302)
+// 	fmt.Println("Database created")
+// 	fmt.Fprintln(w, "db created")
 // }
+
+func CreateTable(w http.ResponseWriter, r *http.Request) {
+	db := dbConn()
+	_, err := db.Exec("CREATE TABLE tree(Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, Name varchar(20), Age varchar(20))")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Println("created table TREE")
+	fmt.Fprintln(w, "TREE table created successfully ", r)
+}
 
 // func Insert(w http.ResponseWriter, r *http.Request) {
 // 	db := dbConn()
-// 	insert, err := db.Prepare("INSERT INTO student(name, city) values('vaibhav','bhusawal')")
+// 	_, err := db.Exec("INSERT INTO mickey(Name, Age) values('tom','100')")
 // 	if err != nil {
 // 		panic(err.Error())
 // 	}
-// 	_, err = insert.Exec()
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	fmt.Println("Data Inserted Successfully ", insert)
+// 	fmt.Println("Data Inserted Successfully ")
 // }
 
 // func Show(w http.ResponseWriter, r *http.Request) {
@@ -81,9 +84,11 @@ func dbConn() (db *sql.DB) {
 
 func main() {
 	//log.Println("Server started on: http://localhost:9000")
-	http.HandleFunc("/create", Create)
-	//http.HandleFunc("/index", Insert)
+	//http.HandleFunc("/create", Create)
+	//http.HandleFunc("/insert", Insert)
 	//http.HandleFunc("/show", Show)
-	fmt.Println(http.ListenAndServe(":9000", nil))
+	//http.HandleFunc("/createdb", CreateDB)
+	http.HandleFunc("/createtable", CreateTable)
+	fmt.Println(http.ListenAndServe(":4020", nil))
 
 }
